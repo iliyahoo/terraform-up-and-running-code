@@ -1,0 +1,34 @@
+
+###############################################
+# STORE THE TERRAFORM STATE IN YOUR S3 BUCKET #
+###############################################
+
+create new bucket: terraform-up-and-running-state-iliyahoo
+
+#########################
+
+cd my_code/global/s3
+
+terraform remote config -backend=s3 -backend-config="bucket=terraform-up-and-running-state-iliyahoo" -backend-config="key=my_code/global/s3/terraform.tfstate" -backend-config="region=us-east-1" -backend-config="encrypt=true" -backend-config="profile=terraform"
+
+#########################
+
+cd my_code/stage/vpc
+
+terraform remote config -backend=s3 -backend-config="bucket=terraform-up-and-running-state-iliyahoo" -backend-config="key=my_code/stage/vpc/terraform.tfstate" -backend-config="region=us-east-1" -backend-config="encrypt=true" -backend-config="profile=terraform"
+
+#########################
+
+cd my_code/stage/services/webserver-cluster
+
+terraform remote config -backend=s3 -backend-config="bucket=terraform-up-and-running-state-iliyahoo" -backend-config="key=my_code/stage/services/webserver-cluster/terraform.tfstate" -backend-config="region=us-east-1" -backend-config="encrypt=true" -backend-config="profile=terraform"
+
+#########################
+
+cd my_code/stage/data-storage/mysql
+
+export TF_VAR_db_password="Qwerty12345"
+
+terraform remote config -backend=s3 -backend-config="bucket=terraform-up-and-running-state-iliyahoo" -backend-config="key=my_code/stage/data-storage/mysql/terraform.tfstate" -backend-config="region=us-east-1" -backend-config="encrypt=true" -backend-config="profile=terraform"
+
+#########################
