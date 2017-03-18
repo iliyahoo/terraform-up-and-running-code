@@ -1,39 +1,52 @@
 variable "aws_profile" {
     type        = "string"
     description = "AWS credentials."
-    default     = "terraform"
 }
 
 
 variable "server_port" {
     type        = "string"
     description = "The port the server will use for HTTP requests"
-    default     = 8080
 }
 
 
 variable "my_region" {
     type    = "string"
-    default = "us-east-1"
+    description = "ec2 region"
 }
 
 
 variable "instance_type" {
     type        = "string"
-    description = ""
-    default     = "t2.nano"
+    description = "ec2 instance type"
 }
 
 
 variable "key_name" {
     type        = "string"
-    description = ""
-    default     = "iliya@vika-note.strakovich.com"
+    description = "SSH key"
 }
 
 
 variable "image_id" {
     type        = "string"
-    description = ""
-    default     = "ami-40d28157"
+    description = "desired AMI"
+}
+
+
+variable "prefix" {
+    type        = "string"
+    description = "environment prefix"
+}
+
+
+variable "min_size" {
+    type        = "string"
+    description = "ASG min_size"
+}
+
+
+variable "max_size" {
+    type        = "string"
+    description = "ASG max_size"
 }

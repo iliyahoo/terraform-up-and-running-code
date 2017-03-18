@@ -28,5 +28,5 @@ module "mysql" {
     aws_profile = "${var.aws_profile}"
     my_region = "${var.my_region}"
     db_password = "${var.db_password}"
-    prefix = "stage"
+    prefix = "prod"
 }
